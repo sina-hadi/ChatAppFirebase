@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FireBaseWatching">
         <activity
-            android:name=".MessageAdapter"
-            android:exported="false" />
-        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity

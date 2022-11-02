@@ -11,12 +11,11 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 
-class PeopleAdapter (var context: Context, var peopleList : List<User>) :
- RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
-
+class PeopleAdapter(var context: Context, var peopleList: List<User>) :
+    RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.people , parent , false)
+        val view = LayoutInflater.from(context).inflate(R.layout.people, parent, false)
         return MyViewHolder(view)
     }
 
@@ -25,14 +24,8 @@ class PeopleAdapter (var context: Context, var peopleList : List<User>) :
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ChatActivity::class.java)
-
-
             val ss = peopleList[position].uid.toString()
-
-            Log.e("TAG4" , ss)
-
-            intent.putExtra("ABC",ss)
-
+            intent.putExtra("ABC", ss)
             context.startActivity(intent)
         }
     }
@@ -41,9 +34,7 @@ class PeopleAdapter (var context: Context, var peopleList : List<User>) :
         return peopleList.size
     }
 
-    class MyViewHolder (itemView : View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
-
-
 }

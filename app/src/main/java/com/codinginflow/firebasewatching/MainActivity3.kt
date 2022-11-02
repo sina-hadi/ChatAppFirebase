@@ -4,28 +4,30 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.codinginflow.firebasewatching.databinding.ActivityMain3Binding
-import com.codinginflow.firebasewatching.databinding.ActivityMainBinding
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 class MainActivity3 : AppCompatActivity() {
+
     private lateinit var binding: ActivityMain3Binding
-    private lateinit var mDbRef : DatabaseReference
+    private lateinit var mDbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMain3Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val userUid = intent.putExtra("uid",ss)
+        val userList = ArrayList<User>()
 
-        var userList = ArrayList<User>()
         val adapter = PeopleAdapter(this, userList)
         binding.recyclerMain.layoutManager = LinearLayoutManager(this)
         binding.recyclerMain.adapter = adapter
 
-        mDbRef = FirebaseDatabase.getInstance().reference
+        mDbRef = Firebase.database.reference
 
         mDbRef.child("user").addValueEventListener(object : ValueEventListener {
             @SuppressLint("NotifyDataSetChanged")
@@ -40,12 +42,9 @@ class MainActivity3 : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@MainActivity3, "Connection Failed", Toast.LENGTH_SHORT).show()
             }
 
         })
-
-
-
-
     }
 }
