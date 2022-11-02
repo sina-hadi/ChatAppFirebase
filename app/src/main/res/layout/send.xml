@@ -4,18 +4,18 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:background="@color/purple_500"
-        android:layout_alignParentRight="true"
-        android:layout_margin="10sp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10sp"
+        android:background="@drawable/layout_send">
 
         <TextView
             android:id="@+id/sendMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="This is send message"
+            android:text="@string/this_is_send_message"
             android:textColor="@color/white"
             android:textSize="18sp" />
 

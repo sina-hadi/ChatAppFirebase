@@ -21,7 +21,7 @@ class MessageAdapter(private var context: Context, var messageList: ArrayList<Me
             val view: View = LayoutInflater.from(context).inflate(R.layout.send, parent, false)
             SendViewHolder(view)
         } else {
-            val view: View = LayoutInflater.from(context).inflate(R.layout.recieve, parent, false)
+            val view: View = LayoutInflater.from(context).inflate(R.layout.receive, parent, false)
             ReceiveViewHolder(view)
         }
 
@@ -59,7 +59,7 @@ class MessageAdapter(private var context: Context, var messageList: ArrayList<Me
     }
 
     class ReceiveViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val receiveMessage: TextView = itemView.findViewById(R.id.recieveMessage)
+        val receiveMessage: TextView = itemView.findViewById(R.id.receiveMessage)
     }
 
 }

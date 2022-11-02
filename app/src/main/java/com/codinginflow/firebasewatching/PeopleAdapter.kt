@@ -24,8 +24,8 @@ class PeopleAdapter(var context: Context, var peopleList: List<User>) :
 
         holder.itemView.setOnClickListener {
             val intent = Intent(context, ChatActivity::class.java)
-            val ss = peopleList[position].uid.toString()
-            intent.putExtra("ABC", ss)
+            intent.putExtra("USER_UID", peopleList[position].uid.toString())
+            intent.putExtra("USER_NAME", peopleList[position].name.toString())
             context.startActivity(intent)
         }
     }

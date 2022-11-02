@@ -3,22 +3,21 @@ package com.codinginflow.firebasewatching
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.codinginflow.firebasewatching.databinding.ActivityMain3Binding
+import com.codinginflow.firebasewatching.databinding.ActivityUserBinding
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
-class MainActivity3 : AppCompatActivity() {
+class UserActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMain3Binding
+    private lateinit var binding: ActivityUserBinding
     private lateinit var mDbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMain3Binding.inflate(layoutInflater)
+        binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val userList = ArrayList<User>()
@@ -42,7 +41,7 @@ class MainActivity3 : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@MainActivity3, "Connection Failed", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@UserActivity, "Connection Failed", Toast.LENGTH_SHORT).show()
             }
 
         })

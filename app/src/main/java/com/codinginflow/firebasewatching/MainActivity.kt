@@ -3,7 +3,6 @@ package com.codinginflow.firebasewatching
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.codinginflow.firebasewatching.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -24,34 +23,34 @@ class MainActivity : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
-        binding.button.setOnClickListener {
-            val username = binding.username.text.toString()
-            val password = binding.password.text.toString()
-            login(username, password)
+        binding.logIn.setOnClickListener {
+            login(
+                binding.username.text.toString(), binding.password.text.toString()
+            )
         }
-        binding.button2.setOnClickListener {
-            val intent = Intent(this@MainActivity, MainActivity2::class.java)
+        binding.signUp.setOnClickListener {
+            val intent = Intent(this@MainActivity, SignUpActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun login(email: String, password: String) {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser
-                    Toast.makeText(
-                        baseContext, "Authentication success.", Toast.LENGTH_SHORT
-                    ).show()
+            if (task.isSuccessful) {
+                val user = auth.currentUser
+                Toast.makeText(
+                    baseContext, "Authentication success.", Toast.LENGTH_SHORT
+                ).show()
 
-                    var intent = Intent(this@MainActivity, MainActivity3::class.java)
-                    intent.putExtra("uid", user?.uid.toString())
-                    startActivity(intent)
+                val intent = Intent(this@MainActivity, UserActivity::class.java)
+                intent.putExtra("uid", user?.uid.toString())
+                startActivity(intent)
 
-                } else {
-                    Toast.makeText(
-                        baseContext, "Authentication failed.", Toast.LENGTH_SHORT
-                    ).show()
-                }
+            } else {
+                Toast.makeText(
+                    baseContext, "Authentication failed.", Toast.LENGTH_SHORT
+                ).show()
             }
+        }
     }
 }

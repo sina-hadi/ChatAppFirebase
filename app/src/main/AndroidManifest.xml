@@ -13,10 +13,12 @@
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity3"
+            android:name=".UserActivity"
+            android:label="Users"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".SignUpActivity"
+            android:label="Sign Up"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

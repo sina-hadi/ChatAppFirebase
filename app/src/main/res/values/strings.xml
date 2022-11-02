@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">FireBaseWatching</string>
+    <string name="app_name">Chat App</string>
+    <string name="send">Send</string>
+    <string name="message">message</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="log_in">log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="name">Name</string>
+    <string name="this_is_send_message">This is send message</string>
+    <string name="textview">TextView</string>
 </resources>

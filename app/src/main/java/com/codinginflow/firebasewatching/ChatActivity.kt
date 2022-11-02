@@ -25,7 +25,10 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
 
-        val receiverUid = intent.getStringExtra("ABC")
+        val receiverName = intent.getStringExtra("USER_NAME")
+        title = receiverName
+
+        val receiverUid = intent.getStringExtra("USER_UID")
         val senderUid = FirebaseAuth.getInstance().currentUser?.uid.toString()
 
         val senderRoom = receiverUid + senderUid
@@ -74,7 +77,5 @@ class ChatActivity : AppCompatActivity() {
                 }
             textSend.text.clear()
         }
-
-
     }
 }
