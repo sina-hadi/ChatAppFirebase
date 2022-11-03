@@ -1,10 +1,12 @@
-package com.codinginflow.firebasewatching
+package com.codinginflow.firebasewatching.ui
 
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.codinginflow.firebasewatching.adapter.PeopleAdapter
+import com.codinginflow.firebasewatching.data.User
 import com.codinginflow.firebasewatching.databinding.ActivityUserBinding
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database

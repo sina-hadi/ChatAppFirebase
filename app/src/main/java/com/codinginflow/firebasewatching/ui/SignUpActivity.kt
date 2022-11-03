@@ -1,8 +1,9 @@
-package com.codinginflow.firebasewatching
+package com.codinginflow.firebasewatching.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.codinginflow.firebasewatching.data.User
 import com.codinginflow.firebasewatching.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -24,11 +25,20 @@ class SignUpActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         binding.signUpButton.setOnClickListener {
-            signup(
-                password = binding.tvPassword.text.toString(),
-                email = binding.tvEmail.text.toString(),
-                name = binding.tvName.text.toString()
-            )
+            if (binding.tvPassword.text.isNullOrEmpty() ||
+                binding.tvEmail.text.isNullOrEmpty() ||
+                binding.tvName.text.isNullOrEmpty()
+            ) {
+                Toast.makeText(
+                    baseContext, "Fill the requirements", Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                signup(
+                    password = binding.tvPassword.text.toString(),
+                    email = binding.tvEmail.text.toString(),
+                    name = binding.tvName.text.toString()
+                )
+            }
         }
     }
 

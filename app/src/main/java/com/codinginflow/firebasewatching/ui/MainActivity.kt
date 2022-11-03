@@ -1,4 +1,4 @@
-package com.codinginflow.firebasewatching
+package com.codinginflow.firebasewatching.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -24,9 +24,17 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         binding.logIn.setOnClickListener {
-            login(
-                binding.username.text.toString(), binding.password.text.toString()
-            )
+            if (binding.username.text.isNullOrEmpty() ||
+                binding.password.text.isNullOrEmpty()
+            ) {
+                Toast.makeText(
+                    baseContext, "Fill the requirements.", Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                login(
+                    binding.username.text.toString(), binding.password.text.toString()
+                )
+            }
         }
         binding.signUp.setOnClickListener {
             val intent = Intent(this@MainActivity, SignUpActivity::class.java)

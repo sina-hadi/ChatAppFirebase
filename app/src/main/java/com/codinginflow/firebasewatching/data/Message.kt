@@ -1,4 +1,4 @@
-package com.codinginflow.firebasewatching
+package com.codinginflow.firebasewatching.data
 
 data class Message(
     val message: String? = null,

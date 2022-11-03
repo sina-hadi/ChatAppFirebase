@@ -1,15 +1,15 @@
-package com.codinginflow.firebasewatching
+package com.codinginflow.firebasewatching.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.codinginflow.firebasewatching.R
+import com.codinginflow.firebasewatching.data.User
+import com.codinginflow.firebasewatching.ui.ChatActivity
 
 class PeopleAdapter(var context: Context, var peopleList: List<User>) :
     RecyclerView.Adapter<PeopleAdapter.MyViewHolder>() {

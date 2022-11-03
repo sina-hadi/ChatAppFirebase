@@ -10,18 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FireBaseWatching">
         <activity
-            android:name=".ChatActivity"
+            android:name=".ui.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".UserActivity"
+            android:name=".ui.UserActivity"
             android:label="Users"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".ui.SignUpActivity"
             android:label="Sign Up"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.codinginflow.firebasewatching
+package com.codinginflow.firebasewatching.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.codinginflow.firebasewatching.data.Message
+import com.codinginflow.firebasewatching.R
 import com.google.firebase.auth.FirebaseAuth
 
 class MessageAdapter(private var context: Context, var messageList: ArrayList<Message>) :
