@@ -1,5 +1,6 @@
 package com.codinginflow.firebasewatching.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -42,6 +43,12 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    private fun backToLogIn() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     private fun signup(password: String, email: String, name: String) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
@@ -51,6 +58,9 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(
                     baseContext, "Sign up successful", Toast.LENGTH_SHORT
                 ).show()
+
+                backToLogIn()
+
             } else {
                 Toast.makeText(
                     baseContext, task.exception?.cause.toString(), Toast.LENGTH_SHORT

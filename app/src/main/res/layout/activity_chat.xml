@@ -16,7 +16,7 @@
             android:id="@+id/messageRv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_margin="15sp"
+            android:layout_margin="16dp"
             android:layout_weight="1"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="2dp" />
@@ -48,6 +48,5 @@
                 android:text="@string/send" />
 
         </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

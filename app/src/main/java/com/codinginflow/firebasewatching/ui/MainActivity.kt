@@ -24,22 +24,26 @@ class MainActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         binding.logIn.setOnClickListener {
-            if (binding.username.text.isNullOrEmpty() ||
-                binding.password.text.isNullOrEmpty()
-            ) {
-                Toast.makeText(
-                    baseContext, "Fill the requirements.", Toast.LENGTH_SHORT
-                ).show()
-            } else {
+            if (checkEntries()) {
                 login(
                     binding.username.text.toString(), binding.password.text.toString()
                 )
+            } else {
+                Toast.makeText(
+                    baseContext, "Fill the requirements.", Toast.LENGTH_SHORT
+                ).show()
             }
         }
+
         binding.signUp.setOnClickListener {
-            val intent = Intent(this@MainActivity, SignUpActivity::class.java)
+            val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    private fun checkEntries(): Boolean {
+        return (binding.username.text.isNotEmpty() &&
+                binding.password.text.isNotEmpty())
     }
 
     private fun login(email: String, password: String) {
@@ -50,9 +54,10 @@ class MainActivity : AppCompatActivity() {
                     baseContext, "Authentication success.", Toast.LENGTH_SHORT
                 ).show()
 
-                val intent = Intent(this@MainActivity, UserActivity::class.java)
+                val intent = Intent(this, UserActivity::class.java)
                 intent.putExtra("uid", user?.uid.toString())
                 startActivity(intent)
+                finish()
 
             } else {
                 Toast.makeText(

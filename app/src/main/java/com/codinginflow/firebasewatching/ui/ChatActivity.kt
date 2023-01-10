@@ -44,8 +44,18 @@ class ChatActivity : AppCompatActivity() {
         collectChat(senderRoom = senderRoom, messageList = messageList)
 
         binding.buttonSend.setOnClickListener {
-            sendMessage(senderUid = senderUid, senderRoom = senderRoom, receiverRoom = receiverRoom)
+            if (checkEntry()) {
+                sendMessage(
+                    senderUid = senderUid,
+                    senderRoom = senderRoom,
+                    receiverRoom = receiverRoom
+                )
+            }
         }
+    }
+
+    private fun checkEntry(): Boolean{
+        return binding.textSend.text.toString().isNotEmpty()
     }
 
     private fun setRecyclerView(messageList: ArrayList<Message>) {
@@ -70,7 +80,8 @@ class ChatActivity : AppCompatActivity() {
                         val message = postSnapshots.getValue(Message::class.java)
                         messageList.add(message!!)
                     }
-                    messageAdapter.notifyDataSetChanged()
+//                    messageAdapter.notifyDataSetChanged()
+                    setRecyclerView(messageList)
                 }
 
                 override fun onCancelled(error: DatabaseError) {
